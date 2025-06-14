@@ -1,0 +1,13 @@
+services:
+  db:
+    container_name: nest-clean-pg
+    image: bitnami/postgresql:17.5.0
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: nest
+      POSTGRES_PASSWORD: nest
+      POSTGRES_DB: nest-clean
+      PGDATA: /data/postgres
+    volumes:
+      - ./data/pg:/data/postgres # anything saved in /data/postgres inside the container will be saved in my host ./data/pg folder
